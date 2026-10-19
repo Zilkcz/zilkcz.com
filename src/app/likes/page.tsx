@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import MusicCard from "@/components/MusicCard";
 import PageHeading from "@/components/PageHeading";
-import { likes, music } from "@/data/likes";
+import { artists, likes, music } from "@/data/likes";
 
 export const metadata: Metadata = { title: "Things I like" };
 
@@ -16,6 +16,15 @@ export default function Likes() {
         <h2 className={headingCls}>Music</h2>
         <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-3">
           {music.map((t) => (
+            <MusicCard key={t.title} track={t} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-12">
+        <h2 className={headingCls}>Artists</h2>
+        <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-3">
+          {artists.map((t) => (
             <MusicCard key={t.title} track={t} />
           ))}
         </div>
