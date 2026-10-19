@@ -25,6 +25,7 @@ export const artists: Track[] = [
   { title: "*67", kind: "Artist", image: "/likes/star67.jpg" },
   { title: "5L", kind: "Artist", image: "/likes/5l.jpg" },
   { title: "wifiskeleton", kind: "Artist", image: "/likes/wifiskeleton.jpg" },
+  { title: "salem_after_dark", kind: "Artist", image: "/likes/messages.jpg" },
 ];
 
 // Placeholder content: replace with the things you actually like.
