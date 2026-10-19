@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zilkcz.com"),
-  title: "zilkcz",
+  title: { default: "zilkcz", template: "%s · zilkcz" },
   description: "Personal site and portfolio of zilkcz.",
   openGraph: {
     title: "zilkcz",
@@ -31,7 +33,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <Header />
+        <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-14">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
