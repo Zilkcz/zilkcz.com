@@ -3,17 +3,25 @@ export type LikeGroup = {
   items: string[];
 };
 
-// Spotify embeds, as "type/id" taken from open.spotify.com links.
-export const spotify: string[] = [
-  "album/6oeFFmSmQp8FvGlrClqMWe",
-  "album/67qaM4rZLNIwFgGvgBY7Hv",
-  "artist/0GxLVHGNIKWLyvtp2zIF9q",
-  "artist/6BjL5fEswNzVzwx9wddLxi",
-  "artist/0TvvDswOgvPbgSPK2RDf62",
-  "artist/4F5j57znw5bPFjrZzXfDNt",
-  "artist/2wvTwsc93H5xfsHE6QK1nl",
-  "track/7l5d3IVBTgqI80IUIjOFOu",
-  "track/1jycdp1IFRsqNw4CtieRbr",
+export type Track = {
+  title: string;
+  artist?: string;
+  kind: "Song" | "Single" | "EP" | "Artist";
+  year?: number;
+  image: string;
+};
+
+// Cover art lives in public/likes/. Titles are copied exactly from Spotify.
+export const music: Track[] = [
+  { title: "4,732 messages..", artist: "salem_after_dark", kind: "Single", year: 2026, image: "/likes/messages.jpg" },
+  { title: "Entry Logs (1-6)", artist: "Jaydes Archive", kind: "EP", year: 2024, image: "/likes/entry-logs.jpg" },
+  { title: "*67", kind: "Artist", image: "/likes/star67.jpg" },
+  { title: "5L", kind: "Artist", image: "/likes/5l.jpg" },
+  { title: "wifiskeleton", kind: "Artist", image: "/likes/wifiskeleton.jpg" },
+  { title: "rooooobbed", artist: "lungskull", kind: "Song", year: 2021, image: "/likes/rooooobbed.jpg" },
+  { title: "heartsick", artist: "Lei", kind: "EP", year: 2021, image: "/likes/heartsick.jpg" },
+  { title: "foreign", artist: "lungskull", kind: "Song", year: 2020, image: "/likes/foreign.jpg" },
+  { title: "met you at the party", artist: "lungskull", kind: "Song", year: 2021, image: "/likes/met-you-at-the-party.jpg" },
 ];
 
 // Placeholder content: replace with the things you actually like.

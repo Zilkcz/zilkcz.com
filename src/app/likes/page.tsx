@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import MusicCard from "@/components/MusicCard";
 import PageHeading from "@/components/PageHeading";
-import { likes, spotify } from "@/data/likes";
+import { likes, music } from "@/data/likes";
 
 export const metadata: Metadata = { title: "Things I like" };
 
@@ -14,17 +15,8 @@ export default function Likes() {
       <section className="mb-12">
         <h2 className={headingCls}>Music</h2>
         <div className="grid gap-3 sm:grid-cols-2">
-          {spotify.map((path) => (
-            <iframe
-              key={path}
-              src={`https://open.spotify.com/embed/${path}`}
-              title={`Spotify ${path.split("/")[0]}`}
-              width="100%"
-              height="152"
-              loading="lazy"
-              allow="encrypted-media"
-              className="rounded-xl border-0"
-            />
+          {music.map((t) => (
+            <MusicCard key={t.title} track={t} />
           ))}
         </div>
       </section>
