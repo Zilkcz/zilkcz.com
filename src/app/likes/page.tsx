@@ -14,7 +14,7 @@ export default function Likes() {
 
       <section className="mb-12">
         <h2 className={headingCls}>Music</h2>
-        <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-3">
           {music.map((t) => (
             <MusicCard key={t.title} track={t} />
           ))}
