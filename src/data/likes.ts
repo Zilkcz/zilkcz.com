@@ -1,12 +1,7 @@
-export type LikeGroup = {
-  title: string;
-  items: string[];
-};
-
 export type Track = {
   title: string;
   artist?: string;
-  kind: "Song" | "Single" | "EP" | "Artist" | "Show" | "Game";
+  kind: "Song" | "Single" | "EP" | "Artist" | "Show" | "Game" | "Other";
   year?: number;
   image: string;
 };
@@ -48,7 +43,6 @@ export const games: Track[] = [
   { title: "Friday Night Funkin'", kind: "Game", image: "/likes/fnf.jpg" },
 ];
 
-// Placeholder content: replace with the things you actually like.
-export const likes: LikeGroup[] = [
-  { title: "Other", items: ["Add anything else"] },
+export const others: Track[] = [
+  { title: "volt", kind: "Other", image: "/likes/volt.jpg" },
 ];

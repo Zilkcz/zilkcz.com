@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import MusicCard from "@/components/MusicCard";
 import PageHeading from "@/components/PageHeading";
-import { artists, games, likes, music, shows } from "@/data/likes";
+import { artists, games, music, others, shows } from "@/data/likes";
 
 export const metadata: Metadata = { title: "things i like" };
 
@@ -48,18 +48,14 @@ export default function Likes() {
         </div>
       </section>
 
-      <div className="grid gap-8 sm:grid-cols-2">
-        {likes.map((group) => (
-          <section key={group.title}>
-            <h2 className={headingCls}>{group.title}</h2>
-            <ul className="space-y-1.5">
-              {group.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
+      <section className="mb-12">
+        <h2 className={headingCls}>other</h2>
+        <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-3">
+          {others.map((t) => (
+            <MusicCard key={t.title} track={t} />
+          ))}
+        </div>
+      </section>
     </>
   );
 }
