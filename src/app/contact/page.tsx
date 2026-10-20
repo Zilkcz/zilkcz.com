@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import PageHeading from "@/components/PageHeading";
 import { socials } from "@/data/socials";
 
-export const metadata: Metadata = { title: "Contact / Socials" };
+export const metadata: Metadata = { title: "contact / socials" };
 
 export default function Contact() {
   return (
     <>
-      <PageHeading title="Contact / Socials" lead="Find me around the internet." />
+      <PageHeading title="contact / socials" lead="find me around the internet." />
       <ul className="flex max-w-sm flex-col gap-3">
         {socials.map((s) => (
           <li key={s.label}>

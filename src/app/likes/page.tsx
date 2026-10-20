@@ -3,14 +3,14 @@ import MusicCard from "@/components/MusicCard";
 import PageHeading from "@/components/PageHeading";
 import { artists, games, likes, music, shows } from "@/data/likes";
 
-export const metadata: Metadata = { title: "Things I like" };
+export const metadata: Metadata = { title: "things i like" };
 
-const headingCls = "mb-3 text-sm font-medium uppercase tracking-wider text-foreground/50";
+const headingCls = "mb-3 text-sm font-medium tracking-wider text-foreground/50";
 
 export default function Likes() {
   return (
     <>
-      <PageHeading title="Things I like" lead="A running list." />
+      <PageHeading title="things i like" lead="a running list." />
 
       <section className="mb-12">
         <h2 className={headingCls}>Music</h2>

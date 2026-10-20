@@ -13,10 +13,10 @@ const comfortaa = Comfortaa({
 export const metadata: Metadata = {
   metadataBase: new URL("https://zilkcz.com"),
   title: { default: "zilkcz", template: "%s · zilkcz" },
-  description: "Personal site and portfolio of zilkcz.",
+  description: "personal site of zilkcz.",
   openGraph: {
     title: "zilkcz",
-    description: "Personal site and portfolio of zilkcz.",
+    description: "personal site of zilkcz.",
     url: "https://zilkcz.com",
     siteName: "zilkcz.com",
     type: "website",

@@ -1,4 +1,4 @@
 export const pages = [
-  { href: "/likes", label: "Things I like", blurb: "Music and favorites" },
-  { href: "/contact", label: "Contact / Socials", blurb: "Find me around the internet" },
+  { href: "/likes", label: "things i like", blurb: "music and favorites" },
+  { href: "/contact", label: "contact / socials", blurb: "find me around the internet" },
 ];

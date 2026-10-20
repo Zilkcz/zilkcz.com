@@ -4,9 +4,9 @@ import { pages } from "@/data/nav";
 export default function Home() {
   return (
     <div className="flex min-h-[55vh] flex-col justify-center">
-      <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">Hey, I&apos;m zilkcz.</h1>
+      <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">hey, i&apos;m zilkcz.</h1>
       <p className="mt-5 max-w-lg text-lg text-foreground/60">
-        This is a placeholder tagline, so make it yours.
+        this is a placeholder tagline, so make it yours.
       </p>
       <nav aria-label="Pages" className="mt-10 grid gap-3 sm:grid-cols-2">
         {pages.map((p) => (
