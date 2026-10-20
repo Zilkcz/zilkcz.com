@@ -6,7 +6,7 @@ export type LikeGroup = {
 export type Track = {
   title: string;
   artist?: string;
-  kind: "Song" | "Single" | "EP" | "Artist";
+  kind: "Song" | "Single" | "EP" | "Artist" | "Show";
   year?: number;
   image: string;
 };
@@ -30,9 +30,17 @@ export const artists: Track[] = [
   { title: "schizocat", kind: "Artist", image: "/likes/schizocat.jpg" },
 ];
 
+export const shows: Track[] = [
+  { title: "Girls' Last Tour", kind: "Show", year: 2017, image: "/likes/girls-last-tour.jpg" },
+  { title: "Attack on Titan", kind: "Show", year: 2013, image: "/likes/attack-on-titan.jpg" },
+  { title: "Neon Genesis Evangelion", kind: "Show", year: 1995, image: "/likes/evangelion.jpg" },
+  { title: "The Stranger by the Shore", kind: "Show", year: 2020, image: "/likes/stranger-by-the-shore.jpg" },
+  { title: "Sasaki and Miyano", kind: "Show", year: 2022, image: "/likes/sasaki-and-miyano.jpg" },
+  { title: "Takopi's Original Sin", kind: "Show", year: 2025, image: "/likes/takopis-original-sin.jpg" },
+];
+
 // Placeholder content: replace with the things you actually like.
 export const likes: LikeGroup[] = [
   { title: "Games", items: ["Add a game"] },
-  { title: "Shows & Movies", items: ["Add a title"] },
   { title: "Other", items: ["Add anything else"] },
 ];
