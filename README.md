@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Edit the copy in `src/app/page.tsx` and the project cards in `src/data/projects.ts`.
+Edit the copy in `src/app/page.tsx`, the music shelves in `src/data/likes.ts` and the social links in `src/data/socials.ts`.
 
 ## Deploy
 

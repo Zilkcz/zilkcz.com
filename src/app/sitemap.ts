@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 const base = "https://zilkcz.com";
-const paths = ["", "/about", "/projects", "/likes", "/contact"];
+const paths = ["", "/likes", "/contact"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return paths.map((p) => ({
