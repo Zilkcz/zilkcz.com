@@ -15,7 +15,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     </>
   );
   const cls =
-    "block rounded-xl border border-foreground/10 p-5 transition-colors hover:border-foreground/30";
+    "block rounded-xl border border-foreground/10 bg-foreground/[0.04] p-5 backdrop-blur-sm transition-colors hover:border-foreground/30";
   return project.href ? (
     <a href={project.href} target="_blank" rel="noreferrer" className={cls}>
       {body}

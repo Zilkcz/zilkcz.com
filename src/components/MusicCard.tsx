@@ -7,7 +7,7 @@ export default function MusicCard({ track }: { track: Track }) {
   return (
     <figure tabIndex={0} aria-label={label} className="group outline-none">
       {/* Back panel, with the sleeve standing on the plank */}
-      <div className="bg-foreground/[0.05] px-[13%] pt-7 shadow-[inset_0_6px_10px_-6px_rgb(0_0_0/0.25)]">
+      <div className="bg-black/25 px-[13%] pt-7 shadow-[inset_0_6px_10px_-6px_rgb(0_0_0/0.5)]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={track.image}
