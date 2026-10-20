@@ -6,8 +6,8 @@ export default function MusicCard({ track }: { track: Track }) {
 
   return (
     <figure tabIndex={0} aria-label={label} className="group outline-none">
-      {/* Back panel, with the sleeve standing on the plank */}
-      <div className="bg-black/25 px-[13%] pt-7 shadow-[inset_0_6px_10px_-6px_rgb(0_0_0/0.5)]">
+      {/* Sleeve standing on the plank */}
+      <div className="px-[13%] pt-7">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={track.image}
@@ -15,7 +15,7 @@ export default function MusicCard({ track }: { track: Track }) {
           width={320}
           height={320}
           loading="lazy"
-          className="block aspect-square w-full object-cover shadow-[0_10px_18px_-6px_rgb(0_0_0/0.45)] ring-1 ring-black/10 transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:-rotate-1 group-focus:-translate-y-2 group-focus:-rotate-1"
+          className="block aspect-square w-full object-cover shadow-[0_8px_16px_-8px_rgb(0_0_0/0.5)] transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:-rotate-1 group-focus:-translate-y-2 group-focus:-rotate-1"
         />
       </div>
       {/* Wooden plank */}
