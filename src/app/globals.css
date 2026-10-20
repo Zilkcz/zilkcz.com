@@ -22,3 +22,78 @@ body {
 ::selection {
   background: rgb(160 200 255 / 0.3);
 }
+
+/* Shelf: one continuous wooden plank per row. Each cell shows its slice of
+   the same wood texture, so the grain runs across the whole row. */
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 2.75rem;
+}
+
+.plank {
+  position: relative;
+}
+
+.plank::after {
+  /* soft shadow the plank casts on the wall below it */
+  content: "";
+  position: absolute;
+  inset: 100% 0 auto 0;
+  height: 22px;
+  background: linear-gradient(rgb(0 0 0 / 0.5), transparent);
+  pointer-events: none;
+}
+
+.plank-top,
+.plank-front {
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+}
+
+.plank-top {
+  height: 10px;
+  background-color: #b98550;
+  background-image: url("/wood-top.jpg");
+}
+
+.plank-front {
+  height: 16px;
+  background-color: #8c5d36;
+  background-image: url("/wood-front.jpg");
+  box-shadow:
+    inset 0 1px 0 rgb(255 225 180 / 0.45),
+    inset 0 -2px 3px rgb(0 0 0 / 0.35);
+}
+
+.shelf > :nth-child(2n + 1) :is(.plank-top, .plank-front) {
+  background-position: 0 0;
+}
+
+.shelf > :nth-child(2n) :is(.plank-top, .plank-front) {
+  background-position: 100% 0;
+}
+
+@media (min-width: 40rem) {
+  .shelf {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .plank-top,
+  .plank-front {
+    background-size: 300% 100%;
+  }
+
+  .shelf > :nth-child(3n + 1) :is(.plank-top, .plank-front) {
+    background-position: 0 0;
+  }
+
+  .shelf > :nth-child(3n + 2) :is(.plank-top, .plank-front) {
+    background-position: 50% 0;
+  }
+
+  .shelf > :nth-child(3n) :is(.plank-top, .plank-front) {
+    background-position: 100% 0;
+  }
+}
