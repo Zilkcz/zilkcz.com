@@ -45,4 +45,6 @@ export const games: Track[] = [
 
 export const others: Track[] = [
   { title: "volt", kind: "Other", image: "/likes/volt.jpg" },
+  { title: "potassium", kind: "Other", image: "/likes/potassium.jpg" },
+  { title: "fl studio", kind: "Other", image: "/likes/fl-studio.jpg" },
 ];
