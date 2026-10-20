@@ -3,7 +3,8 @@ export type Social = {
   href: string;
 };
 
-// Add your links here, e.g. { label: "Discord", href: "..." }.
+// Add your links here, e.g. { label: "Instagram", href: "..." }.
 export const socials: Social[] = [
-  { label: "GitHub", href: "https://github.com/Zilkcz" },
+  { label: "Spotify", href: "https://open.spotify.com/artist/6qQ9ox7izMUsbxdaPJm1Yr" },
+  { label: "Discord", href: "https://discord.com/users/1427412466014355456" },
 ];
