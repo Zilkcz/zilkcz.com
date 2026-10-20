@@ -1,7 +1,6 @@
 import type { Track } from "@/data/likes";
 
 export default function MusicCard({ track }: { track: Track }) {
-  const meta = [track.kind, track.year].filter(Boolean).join(" · ");
   const label = `${track.title}${track.artist ? ` by ${track.artist}` : ""}`;
 
   return (
@@ -26,7 +25,6 @@ export default function MusicCard({ track }: { track: Track }) {
       <figcaption className="mt-3 min-w-0 px-[13%]">
         <p className="truncate text-sm font-medium">{track.title}</p>
         {track.artist && <p className="truncate text-xs text-foreground/60">{track.artist}</p>}
-        <p className="mt-0.5 text-[11px] uppercase tracking-wide text-foreground/40">{meta}</p>
       </figcaption>
     </figure>
   );
