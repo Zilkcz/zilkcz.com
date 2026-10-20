@@ -2,11 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { pages } from "@/data/nav";
 
-const links = [
-  { href: "/likes", label: "Things I like" },
-  { href: "/contact", label: "Contact / Socials" },
-];
 
 export default function Header() {
   const pathname = usePathname().replace(/\/$/, "");
@@ -18,7 +15,7 @@ export default function Header() {
           zilkcz
         </Link>
         <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-          {links.map((l) => {
+          {pages.map((l) => {
             const active = pathname === l.href;
             return (
               <li key={l.href}>
