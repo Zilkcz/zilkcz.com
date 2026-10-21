@@ -1,3 +1,4 @@
+import DiscordStatus from "@/components/DiscordStatus";
 import Greeting from "@/components/Greeting";
 import PageHeading from "@/components/PageHeading";
 import Shelf from "@/components/Shelf";
@@ -10,6 +11,9 @@ export default function Home() {
     <>
       <div className="mb-20">
         <Greeting />
+        <div className="mt-6">
+          <DiscordStatus />
+        </div>
       </div>
 
       <PageHeading title="things i enjoy" />

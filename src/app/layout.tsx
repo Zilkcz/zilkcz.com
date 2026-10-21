@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import Footer from "@/components/Footer";
 import Snow from "@/components/Snow";
+import TitleTyper from "@/components/TitleTyper";
 import "./globals.css";
 
 const comfortaa = Comfortaa({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col">
         <Snow />
+        <TitleTyper />
         <div className="relative z-10 flex min-h-screen flex-col">
           <main className="mx-auto w-full max-w-3xl flex-1 px-6 pb-16 pt-24">{children}</main>
           <Footer />
