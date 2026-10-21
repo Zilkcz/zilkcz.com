@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-type Flake = { x: number; y: number; r: number; vy: number; drift: number; phase: number };
+type Flake = { x: number; y: number; r: number; vy: number; drift: number; phase: number; vx: number };
 
 export default function Snow() {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -17,6 +17,7 @@ export default function Snow() {
     let h = 0;
     let flakes: Flake[] = [];
     let raf = 0;
+    const pointer = { x: -1000, y: -1000 };
 
     const make = (): Flake => {
       const r = 0.8 + Math.random() * 2.2;
@@ -27,6 +28,7 @@ export default function Snow() {
         vy: 0.25 + r * 0.22,
         drift: 0.15 + Math.random() * 0.4,
         phase: Math.random() * Math.PI * 2,
+        vx: 0,
       };
     };
 
@@ -54,6 +56,18 @@ export default function Snow() {
 
     const tick = (t: number) => {
       for (const f of flakes) {
+        // flakes near the cursor get pushed away, then settle back to falling
+        const dx = f.x - pointer.x;
+        const dy = f.y - pointer.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < 110 * 110 && d2 > 1) {
+          const push = (1 - Math.sqrt(d2) / 110) * 1.4;
+          const d = Math.sqrt(d2);
+          f.vx += (dx / d) * push;
+          f.y += (dy / d) * push * 0.6;
+        }
+        f.x += f.vx;
+        f.vx *= 0.94;
         f.y += f.vy;
         if (f.y > h + 4) {
           f.y = -4;
@@ -69,6 +83,13 @@ export default function Snow() {
       if (reduce.matches) draw(0);
       else raf = requestAnimationFrame(tick);
     };
+    const onPointer = (e: PointerEvent) => {
+      pointer.x = e.clientX;
+      pointer.y = e.clientY;
+    };
+    const onLeave = () => {
+      pointer.x = pointer.y = -1000;
+    };
     const onVisibility = () => (document.hidden ? cancelAnimationFrame(raf) : start());
 
     resize();
@@ -78,10 +99,14 @@ export default function Snow() {
       start();
     });
     document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pointermove", onPointer);
+    document.addEventListener("pointerleave", onLeave);
     reduce.addEventListener("change", start);
     return () => {
       cancelAnimationFrame(raf);
       document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pointermove", onPointer);
+      document.removeEventListener("pointerleave", onLeave);
       reduce.removeEventListener("change", start);
     };
   }, []);

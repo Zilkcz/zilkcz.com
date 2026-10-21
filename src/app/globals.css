@@ -13,7 +13,11 @@
 }
 
 body {
-  background: var(--background) linear-gradient(180deg, #0f1a30 0%, #0b1220 45%, #070b14 100%) fixed;
+  background:
+    radial-gradient(ellipse 70% 38% at 18% 0%, rgb(70 150 190 / 0.2), transparent 70%) fixed,
+    radial-gradient(ellipse 60% 34% at 82% 2%, rgb(120 90 210 / 0.16), transparent 70%) fixed,
+    linear-gradient(180deg, #0f1a30 0%, #0b1220 45%, #070b14 100%) fixed,
+    var(--background);
   color: var(--foreground);
   text-transform: lowercase;
   font-family: var(--font-comfortaa), Arial, Helvetica, sans-serif;
@@ -95,5 +99,27 @@ body {
 
   .shelf > :nth-child(3n) :is(.plank-top, .plank-front) {
     background-position: 100% 0;
+  }
+}
+
+/* Shelves rise and fade in as they scroll into view (pure CSS, no JS) */
+@keyframes shelf-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .shelf {
+      animation: shelf-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
   }
 }
