@@ -8,7 +8,7 @@ const headingCls = "mb-3 text-center text-sm font-medium tracking-wider text-for
 export default function Home() {
   return (
     <>
-      <div className="mb-24">
+      <div className="mb-32">
         <ProfileCard />
       </div>
 

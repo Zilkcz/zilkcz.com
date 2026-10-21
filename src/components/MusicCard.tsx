@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Track } from "@/data/likes";
 import Plank from "@/components/Plank";
+import { attach, start, stop as busStop } from "@/lib/audioBus";
 
 // Only one preview plays at a time.
 let current: { stop: () => void } | null = null;
@@ -32,9 +33,12 @@ export default function MusicCard({ track, tall = false }: { track: Track; tall?
     }, 25);
   };
 
+  const nowLabel = track.artist ? `${track.title} — ${track.artist}` : track.title;
+
   const stop = () => {
     if (!audioRef.current) return;
     setPlaying(false);
+    busStop(nowLabel);
     fadeTo(0, () => audioRef.current?.pause());
     if (current === selfRef.current) current = null;
   };
@@ -56,11 +60,12 @@ export default function MusicCard({ track, tall = false }: { track: Track; tall?
     }
     const audio = audioRef.current;
     audio.volume = 0;
-    audio
-      .play()
+    attach(audio)
+      .then(() => audio.play())
       .then(() => {
         current = selfRef.current;
         setPlaying(true);
+        start(nowLabel);
         fadeTo(VOLUME);
       })
       .catch(() => {
