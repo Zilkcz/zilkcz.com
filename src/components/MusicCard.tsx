@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Track } from "@/data/likes";
 import Plank from "@/components/Plank";
+import SleeveBars from "@/components/SleeveBars";
 import { attach, start, stop as busStop } from "@/lib/audioBus";
 
 // Only one preview plays at a time.
@@ -103,7 +104,7 @@ export default function MusicCard({ track, tall = false }: { track: Track; tall?
     >
       {/* Sleeve standing on the plank, its base sunk slightly into the top surface */}
       <div className="relative z-10 -mb-1.5 px-[13%] pt-7">
-        <div className="relative">
+        <div className="relative shadow-[0_6px_8px_-4px_rgb(0_0_0/0.7)] transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:-rotate-1 group-focus:-translate-y-2 group-focus:-rotate-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={track.image}
@@ -111,18 +112,9 @@ export default function MusicCard({ track, tall = false }: { track: Track; tall?
             width={tall ? 360 : 320}
             height={tall ? 480 : 320}
             loading="lazy"
-            className={`block w-full object-cover ${tall ? "aspect-[3/4]" : "aspect-square"} shadow-[0_6px_8px_-4px_rgb(0_0_0/0.7)] transition-transform duration-300 ease-out group-hover:-translate-y-2 group-hover:-rotate-1 group-focus:-translate-y-2 group-focus:-rotate-1`}
+            className={`block w-full object-cover ${tall ? "aspect-[3/4]" : "aspect-square"}`}
           />
-          {playing && (
-            <span
-              aria-hidden
-              className="eq pointer-events-none absolute bottom-2 right-2 flex h-4 items-end gap-[3px] rounded bg-black/55 px-1.5 py-1 transition-transform duration-300 group-hover:-translate-y-2 group-hover:-rotate-1 group-focus:-translate-y-2 group-focus:-rotate-1"
-            >
-              <i />
-              <i />
-              <i />
-            </span>
-          )}
+          {hasPreview && <SleeveBars label={nowLabel} />}
         </div>
       </div>
       <Plank />

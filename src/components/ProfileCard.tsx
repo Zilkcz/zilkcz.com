@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Greeting from "@/components/Greeting";
 import SocialIcon from "@/components/SocialIcon";
-import Visualizer from "@/components/Visualizer";
 import { socials } from "@/data/socials";
 
 const USER_ID = "1427412466014355456";
@@ -238,7 +237,6 @@ export default function ProfileCard() {
           ))}
         </ul>
       </section>
-      <Visualizer />
     </div>
   );
 }
