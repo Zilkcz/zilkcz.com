@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Snow from "@/components/Snow";
 import "./globals.css";
 
@@ -32,8 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <Snow />
         <div className="relative z-10 flex min-h-screen flex-col">
-          <Header />
-          <main className="mx-auto w-full max-w-3xl flex-1 px-6 py-16">{children}</main>
+          <main className="mx-auto w-full max-w-3xl flex-1 px-6 pb-16 pt-24">{children}</main>
           <Footer />
         </div>
       </body>
