@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import Greeting from "@/components/Greeting";
 import SocialIcon from "@/components/SocialIcon";
 import { socials } from "@/data/socials";
@@ -53,7 +53,12 @@ function describe(p: Presence, now: number): string {
   return text || STATUS[p.discord_status].label;
 }
 
+const subscribe = () => () => {};
+
 export default function ProfileCard() {
+  // False in the static HTML, true in the browser. The avatar <img> is only created
+  // client-side so its onError handler is attached before the image can fail to load.
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
   const [presence, setPresence] = useState<Presence | null>(null);
   const [now, setNow] = useState(() => Date.now());
   // Avatar sources, in order: the self-hosted /avatar.jpg, then the live Discord avatar, then a letter.
@@ -134,7 +139,7 @@ export default function ProfileCard() {
     user?.avatar && !discordFailed
       ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=256`
       : null;
-  const avatar = localFailed ? discordAvatar : "/avatar.jpg";
+  const avatar = !mounted ? null : localFailed ? discordAvatar : "/avatar.jpg";
 
   return (
     <section className="profile-card mx-auto w-full max-w-md rounded-3xl border border-white/10 bg-black/30 px-8 pb-8 pt-10 text-center backdrop-blur-xl">
