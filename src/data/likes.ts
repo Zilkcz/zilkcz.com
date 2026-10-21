@@ -14,7 +14,7 @@ export const music: Track[] = [
   { title: "Entry Logs (1-6)", artist: "Jaydes Archive", kind: "EP", year: 2024, image: "/likes/entry-logs.jpg", preview: "/previews/entry-logs.mp3" },
   { title: "rooooobbed", artist: "lungskull", kind: "Song", year: 2021, image: "/likes/rooooobbed.jpg", preview: "/previews/rooooobbed.mp3" },
   { title: "heartsick", artist: "Lei", kind: "EP", year: 2021, image: "/likes/heartsick.jpg", preview: "/previews/heartsick.mp3" },
-  { title: "foreign", artist: "lungskull", kind: "Song", year: 2020, image: "/likes/foreign.jpg" },
+  { title: "foreign", artist: "lungskull", kind: "Song", year: 2020, image: "/likes/foreign.jpg", preview: "/previews/foreign.mp3" },
   { title: "met you at the party", artist: "lungskull", kind: "Song", year: 2021, image: "/likes/met-you-at-the-party.jpg" },
 ];
 
