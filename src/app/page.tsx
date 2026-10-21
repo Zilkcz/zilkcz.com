@@ -1,19 +1,15 @@
-import DiscordStatus from "@/components/DiscordStatus";
-import Greeting from "@/components/Greeting";
 import PageHeading from "@/components/PageHeading";
+import ProfileCard from "@/components/ProfileCard";
 import Shelf from "@/components/Shelf";
 import { artists, games, music, others, shows } from "@/data/likes";
 
-const headingCls = "mb-3 text-sm font-medium tracking-wider text-foreground/50";
+const headingCls = "mb-3 text-center text-sm font-medium tracking-wider text-foreground/50";
 
 export default function Home() {
   return (
     <>
-      <div className="mb-20">
-        <Greeting />
-        <div className="mt-6">
-          <DiscordStatus />
-        </div>
+      <div className="mb-24">
+        <ProfileCard />
       </div>
 
       <PageHeading title="things i enjoy" />

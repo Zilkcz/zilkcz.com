@@ -40,7 +40,7 @@ export default function Greeting() {
     <h1
       ref={ref}
       style={{ opacity: 0 }}
-      className="greeting text-5xl font-bold tracking-tight transition-opacity duration-500 sm:text-7xl"
+      className="greeting text-3xl font-bold tracking-tight transition-opacity duration-500 sm:text-4xl"
     >
       {greetings[0]}
       <noscript>
