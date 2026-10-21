@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const PHRASES = ["zilkcz", "things i enjoy"];
+const PHRASES = ["zilkcz"];
 const TYPE_MS = 170;
 const DELETE_MS = 90;
 const HOLD_MS = 1800;
