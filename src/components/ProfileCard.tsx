@@ -56,7 +56,7 @@ function describe(p: Presence, now: number): string {
 export default function ProfileCard() {
   const [presence, setPresence] = useState<Presence | null>(null);
   const [now, setNow] = useState(() => Date.now());
-  // Avatar sources, in order: the live Discord avatar, then /avatar.jpg, then a letter.
+  // Avatar sources, in order: the self-hosted /avatar.jpg, then the live Discord avatar, then a letter.
   const [discordFailed, setDiscordFailed] = useState(false);
   const [localFailed, setLocalFailed] = useState(false);
 
@@ -134,7 +134,7 @@ export default function ProfileCard() {
     user?.avatar && !discordFailed
       ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=256`
       : null;
-  const avatar = discordAvatar ?? (localFailed ? null : "/avatar.jpg");
+  const avatar = localFailed ? discordAvatar : "/avatar.jpg";
 
   return (
     <section className="profile-card mx-auto w-full max-w-md rounded-3xl border border-white/10 bg-black/30 px-8 pb-8 pt-10 text-center backdrop-blur-xl">
@@ -146,7 +146,7 @@ export default function ProfileCard() {
             alt=""
             width={112}
             height={112}
-            onError={() => (avatar === discordAvatar ? setDiscordFailed(true) : setLocalFailed(true))}
+            onError={() => (avatar === "/avatar.jpg" ? setLocalFailed(true) : setDiscordFailed(true))}
             className="size-28 rounded-full object-cover ring-2 ring-white/20"
           />
         ) : (
