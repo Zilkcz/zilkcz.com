@@ -12,7 +12,7 @@ export type Track = {
 export const music: Track[] = [
   { title: "4,732 messages..", artist: "salem_after_dark", kind: "Single", year: 2026, image: "/likes/messages.jpg" },
   { title: "Entry Logs (1-6)", artist: "Jaydes Archive", kind: "EP", year: 2024, image: "/likes/entry-logs.jpg", preview: "/previews/entry-logs.mp3" },
-  { title: "rooooobbed", artist: "lungskull", kind: "Song", year: 2021, image: "/likes/rooooobbed.jpg" },
+  { title: "rooooobbed", artist: "lungskull", kind: "Song", year: 2021, image: "/likes/rooooobbed.jpg", preview: "/previews/rooooobbed.mp3" },
   { title: "heartsick", artist: "Lei", kind: "EP", year: 2021, image: "/likes/heartsick.jpg", preview: "/previews/heartsick.mp3" },
   { title: "foreign", artist: "lungskull", kind: "Song", year: 2020, image: "/likes/foreign.jpg" },
   { title: "met you at the party", artist: "lungskull", kind: "Song", year: 2021, image: "/likes/met-you-at-the-party.jpg" },
