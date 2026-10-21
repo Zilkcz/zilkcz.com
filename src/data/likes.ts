@@ -4,6 +4,8 @@ export type Track = {
   kind: "Song" | "Single" | "EP" | "Artist" | "Show" | "Game" | "Other";
   year?: number;
   image: string;
+  /** Short audio clip played on hover, e.g. "/previews/foreign.mp3" (files live in public/previews/). */
+  preview?: string;
 };
 
 // Cover art lives in public/likes/. Titles are copied exactly from Spotify.
