@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Greeting from "@/components/Greeting";
 import SocialIcon from "@/components/SocialIcon";
 import { socials } from "@/data/socials";
@@ -59,6 +59,20 @@ export default function ProfileCard() {
   // False in the static HTML, true in the browser. The avatar <img> is only created
   // client-side so its onError handler is attached before the image can fail to load.
   const mounted = useSyncExternalStore(subscribe, () => true, () => false);
+  const card = useRef<HTMLElement>(null);
+
+  // Tilt the card toward the mouse (mouse only, and not for reduced motion).
+  const tilt = (e: React.PointerEvent<HTMLElement>) => {
+    const el = card.current;
+    if (!el || e.pointerType !== "mouse" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.transform = `perspective(900px) rotateX(${(-y * 7).toFixed(2)}deg) rotateY(${(x * 9).toFixed(2)}deg)`;
+  };
+  const untilt = () => {
+    if (card.current) card.current.style.transform = "";
+  };
   const [presence, setPresence] = useState<Presence | null>(null);
   const [now, setNow] = useState(() => Date.now());
   // Avatar sources, in order: the self-hosted /avatar.jpg, then the live Discord avatar, then a letter.
@@ -142,7 +156,12 @@ export default function ProfileCard() {
   const avatar = !mounted ? null : localFailed ? discordAvatar : "/avatar.jpg";
 
   return (
-    <section className="profile-card mx-auto w-full max-w-md rounded-3xl border border-white/10 bg-black/30 px-8 pb-8 pt-10 text-center backdrop-blur-xl">
+    <section
+      ref={card}
+      onPointerMove={tilt}
+      onPointerLeave={untilt}
+      className="profile-card mx-auto w-full max-w-md rounded-3xl border border-white/10 bg-black/30 px-8 pb-8 pt-10 text-center backdrop-blur-xl"
+    >
       <div className="relative mx-auto size-28">
         {avatar ? (
           // eslint-disable-next-line @next/next/no-img-element

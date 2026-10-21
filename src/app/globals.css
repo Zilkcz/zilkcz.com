@@ -168,7 +168,9 @@ body {
     0 0 0 1px rgb(255 255 255 / 0.04) inset,
     0 20px 60px -20px rgb(0 0 0 / 0.7),
     0 0 80px -30px rgb(120 160 255 / 0.35);
-  animation: card-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: card-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  transition: transform 0.18s ease-out;
+  will-change: transform;
 }
 
 .profile-card .greeting {
@@ -190,4 +192,31 @@ body {
   .profile-card {
     animation: none;
   }
+}
+
+/* "click to enter" screen */
+.gate-text {
+  animation: gate-pulse 2.4s ease-in-out infinite;
+  text-shadow: 0 0 18px rgb(160 200 255 / 0.5);
+}
+
+@keyframes gate-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-text {
+    animation: none;
+  }
+}
+
+/* Already entered in this tab: never flash the gate on a refresh */
+html.entered .gate {
+  display: none;
 }
