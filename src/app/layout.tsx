@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import EnterGate from "@/components/EnterGate";
 import Footer from "@/components/Footer";
+import SecureLock from "@/components/SecureLock";
 import Snow from "@/components/Snow";
 import TitleTyper from "@/components/TitleTyper";
 import "./globals.css";
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         <EnterGate />
+        <SecureLock />
         <Snow />
         <TitleTyper />
         <div className="relative z-10 flex min-h-screen flex-col">
